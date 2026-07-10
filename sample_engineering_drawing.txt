@@ -1,0 +1,9 @@
+TITLE: BRACKET SUPPORT ENGINEERING DRAWING
+Part No: BRK-2045-A
+Rev: C
+Material: ASTM A36 Carbon Steel
+Dimensions: 120 mm x 45 mm x 8 mm
+Tolerance: +/- 0.10 mm unless otherwise specified
+Surface Finish: 3.2 um Ra
+Standard: ISO 2768-m
+Sheet 1 of 1

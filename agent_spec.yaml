@@ -1,0 +1,74 @@
+agent_name: Engineering Document Intelligence Agent
+use_case_id: GOH-UC-007
+version: 0.1-prototype
+purpose: >
+  Ingest, classify, extract, score, search and route engineering document attributes
+  from unstructured technical documents across industrial, medtech and plant engineering contexts.
+
+instructions: |
+  You are an Engineering Document Intelligence Agent.
+  Your job is to classify technical documents and extract structured engineering attributes.
+  Always return machine-readable JSON.
+  Always include confidence for the document class and each extracted attribute.
+  If confidence is below threshold, mark the item for human review.
+  Do not invent attributes. If an attribute is missing, return null with confidence 0.
+  Preserve traceability by returning source file name, page/sheet if available, and matched text evidence.
+
+inputs:
+  - scanned_pdf
+  - text_pdf
+  - cad_exported_drawing_pdf
+  - docx_specification
+  - xlsx_specification
+  - image_drawing
+  - txt_or_csv_export
+
+outputs:
+  - classification
+  - extracted_attributes_json
+  - confidence_scores
+  - human_review_queue
+  - searchable_review_dashboard
+
+classification_labels:
+  - engineering_drawing
+  - material_datasheet
+  - inspection_report
+  - change_notice
+  - test_certificate
+  - specification
+  - unknown
+
+attribute_schema:
+  document_type: string
+  part_number: string
+  revision: string
+  material: string
+  dimensions: list
+  tolerances: list
+  surface_finish: string
+  standards: list
+  compliance: list
+  inspection_or_certificate_id: string
+  effective_date: string
+  confidence_overall: number
+  needs_review: boolean
+
+confidence_thresholds:
+  auto_accept: 0.85
+  human_review: 0.70
+  reject_or_reprocess: 0.50
+
+tools:
+  ingest_document: Reads files and extracts raw text.
+  classify_document: Assigns technical document class.
+  extract_attributes: Extracts engineering attributes.
+  score_confidence: Scores reliability and flags uncertain fields.
+  export_records: Writes JSON and CSV.
+  review_dashboard: Provides searchable validation UI.
+
+integration_roadmap:
+  plm_erp_phase_1: Export approved records to CSV/JSON staging.
+  plm_erp_phase_2: Push approved records to Dataverse or SQL via API.
+  plm_erp_phase_3: Integrate with Teamcenter/Windchill/SAP DMS using governed connectors.
+  plm_erp_phase_4: Add change impact analysis and bidirectional revision synchronization.

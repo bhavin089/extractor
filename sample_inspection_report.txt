@@ -1,0 +1,9 @@
+INSPECTION REPORT
+Report No: IR-2026-017
+Part Number: BRK-2045-A
+Revision: C
+Measured dimension: 120.02 mm
+Tolerance: ±0.10 mm
+Result: Accepted
+Inspector: QA Department
+Date: 2026-06-30

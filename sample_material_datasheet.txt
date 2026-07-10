@@ -1,0 +1,6 @@
+MATERIAL DATASHEET
+Grade: 316L Stainless Steel
+Material: ASTM A240 316L
+Chemical Composition and Mechanical Properties
+Applicable Standards: ASTM A240, ASME SA-240, ISO 15510
+Density: 8.0 g/cm3
